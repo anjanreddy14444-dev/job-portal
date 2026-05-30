@@ -229,9 +229,9 @@ themeToggle.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
 });
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  navLinks.classList.toggle("open");
 });
 document.addEventListener('click', (e) => {
   if (!navbar.contains(e.target)) {
