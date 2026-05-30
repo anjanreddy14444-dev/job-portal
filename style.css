@@ -96,6 +96,12 @@ ul{list-style:none}
 
   padding: 40px 24px;
 }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.45;animation:floatBlob 12s ease-in-out infinite alternate}
 [data-theme="dark"] .blob{opacity:0.25}
 .blob-1{width:600px;height:600px;background:radial-gradient(circle,#ff8c38,#e85d04);top:-150px;right:-150px}
