@@ -307,3 +307,14 @@ ul{list-style:none}
   .about-title{font-size:2rem}
   .section-title{font-size:1.4rem}
 }
+.hero {
+  border: 5px solid red !important;
+}
+
+.hero-content {
+  border: 5px solid blue !important;
+}
+
+.navbar {
+  border: 5px solid green !important;
+}
