@@ -1,17 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="light">
 <head>
-    <title>Internship Portal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternHub — Find Your Dream Internship</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <h1>Internship Portal</h1>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Intern<strong>Hub</strong></span>
+      </a>
 
-    <input type="text" id="search" placeholder="Search internships">
+      <div class="nav-links" id="navLinks">
+        <a href="#listings" class="nav-link">Browse</a>
+        <a href="#saved-section" class="nav-link">
+          Saved
+          <span class="saved-badge" id="navSavedCount">0</span>
+        </a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
 
-    <div id="jobs"></div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-    <script src="script.js"></script>
-</body>
-</html>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        <span>200+ Internships Available</span>
+      </div>
+      <h1 class="hero-title">
+        Launch Your<br />
+        <span class="title-highlight">Tech Career</span><br />
+        From Here.
+      </h1>
+      <p class="hero-subtitle">
+        Curated internships for aspiring Frontend, MERN, and Full Stack developers. 
+        No noise — just opportunities that matter.
+      </p>
+
+      <div class="hero-search">
+        <div class="search-wrapper">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search roles, companies, skills..."
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchBtn">Search</button>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Companies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Openings</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Tracks</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== LISTINGS ===== -->
+  <section class="listings-section" id="listings">
+    <div class="container">
+
+      <!-- Filters -->
+      <div class="filters-bar">
+        <div class="filters-label">Filter by:</div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="remote">🌐 Remote</button>
+          <button class="chip" data-filter="hyderabad">📍 Hyderabad</button>
+          <button class="chip" data-filter="frontend">⚡ Frontend</button>
+          <button class="chip" data-filter="mern">🔷 MERN</button>
+          <button class="chip" data-filter="fullstack">🌀 Full Stack</button>
+        </div>
+        <div class="results-count" id="resultsCount">Showing <strong>12</strong> internships</div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid" id="cardsGrid">
+        <!-- JS renders here -->
+      </div>
+
+      <div class="no-results hidden" id="noResults">
+        <div class="no-results-icon">🔍</div>
+        <h3>No internships found</h3>
+        <p>Try a different search term or filter.</p>
+        <button class="btn-reset" id="resetBtn">Clear filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SAVED INTERNSHIPS ===== -->
+  <section class="saved-section" id="saved-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Saved Internships <span class="saved-count-label" id="savedCountLabel">0</span></h2>
+        <button class="btn-clear-saved" id="clearSavedBtn">Clear All</button>
+      </div>
+      <div class="saved-grid" id="savedGrid">
+        <div class="saved-empty" id="savedEmpty">
+          <div class="empty-icon">🔖</div>
+          <p>No saved internships yet.<br/>Click the bookmark icon on any card to save it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="about-tag">Built for Students</span>
+        <h2 class="about-title">Why InternHub?</h2>
+        <p class="about-desc">InternHub is a curated internship discovery platform built for engineering students who want to break into tech. We focus on the roles that matter — Frontend, MERN, and Full Stack — and surface them cleanly without the clutter.</p>
+        <ul class="about-points">
+          <li><span class="point-icon">✓</span> Curated, relevant internships only</li>
+          <li><span class="point-icon">✓</span> Save and track what interests you</li>
+          <li><span class="point-icon">✓</span> Filter by location, stack, and role</li>
+          <li><span class="point-icon">✓</span> Clean, fast, no account required</li>
+        </ul>
+      </div>
+      <div class="about-visual">
+        <div class="about-card-mockup">
+          <div class="mockup-dot red"></div>
+          <div class="mockup-dot yellow"></div>
+          <div class="mockup-dot green"></div>
+          <div class="mockup-lines">
+            <div class="m-line wide"></div>
+            <div class="m-line medium accent"></div>
+            <div class="m-line short"></div>
+            <div class="m-line medium"></div>
+            <div class="m-line short accent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Intern<strong>Hub</strong></span>
+        <p class="footer-tagline">Your launchpad into tech.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#listings">Browse Internships</a>
+          <a href="#saved-section">Saved</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tracks</h4>
+          <a href="#">Frontend</a>
+          <a href="#">MERN Stack</a>
+          <a href="#">Full Stack</a>
+        </div>
+        <div class="footer-col">
+          <h4>Student</h4>
+          <a href="#">Resume Tips</a>
+          <a href="#">Interview Prep</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 InternHub. Built with ♥ for engineering students.</p>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
