@@ -275,7 +275,7 @@ function renderCards() {
         <div class="company-logo">${item.logo}</div>
         <button class="card-save-btn ${isSaved ? 'saved' : ''}" data-id="${item.id}" title="${isSaved ? 'Unsave' : 'Save'}">🔖</button>
       </div>
-      <div class="card-company">${item.company}</div>
+      <div class="card-company">${item.company} • ${item.location}</div>
       <div class="card-title">${item.title}🔥</div>
       <div class="card-meta">
         <span class="meta-pill location">📍 ${item.location}</span>
