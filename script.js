@@ -273,7 +273,7 @@ function renderCards() {
     card.innerHTML = `
       <div class="card-header">
         <div class="company-logo">${item.logo}</div>
-        <button class="card-save-btn ${isSaved ? 'saved' : ''}" data-id="${item.id}" title="${isSaved ? 'Unsave' : 'Save'}">🔖</button>
+        <button class="card-save-btn ${isSaved ? 'saved' : ''}" data-id="${item.id}" title="${isSaved ? 'Unsave' : 'Save'}">⭐️</button>
       </div>
       <div class="card-company">${item.company} • ${item.location}</div>
       <div class="card-title">${item.title}🔥</div>
